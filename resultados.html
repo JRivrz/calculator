@@ -481,60 +481,6 @@
 			display: block;
 		}
 
-		.comparison-section {
-			background: white;
-			border-radius: 12px;
-			padding: 40px;
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-			margin-bottom: 40px;
-		}
-
-		.comparison-title {
-			font-size: 20px;
-			font-weight: 700;
-			color: #2c3e50;
-			margin-bottom: 28px;
-			text-align: center;
-		}
-
-		.comparison-table {
-			width: 100%;
-			border-collapse: collapse;
-		}
-
-		.comparison-table th {
-			background: #f9fafb;
-			padding: 16px;
-			text-align: left;
-			font-weight: 600;
-			color: #2c3e50;
-			border-bottom: 2px solid #e0e7ff;
-			font-size: 13px;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-		}
-
-		.comparison-table td {
-			padding: 16px;
-			border-bottom: 1px solid #e0e7ff;
-			font-size: 14px;
-			color: #5a6c7d;
-		}
-
-		.comparison-table tr:last-child td {
-			border-bottom: none;
-		}
-
-		.value-current {
-			font-weight: 600;
-			color: #d4a574;
-		}
-
-		.value-new {
-			font-weight: 600;
-			color: #a5be00;
-		}
-
 		.final-disclaimer {
 			background: #fef3cd;
 			border-left: 4px solid #a5be00;
@@ -722,34 +668,6 @@
 			</div>
 		</div>
 
-		<div class="comparison-section">
-			<div class="comparison-title">📋 Comparativa detallada</div>
-			<table class="comparison-table">
-				<thead>
-					<tr>
-						<th>Métrica</th>
-						<th>Situación actual</th>
-						<th>Con compactación</th>
-						<th>Beneficio</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>Recolecciones/mes</strong></td>
-						<td class="value-current" id="tableCurrentCollections">-</td>
-						<td class="value-new" id="tableNewCollections">-</td>
-						<td id="tableCollectionsDiff" style="color: #a5be00; font-weight: 600;">-</td>
-					</tr>
-					<tr>
-						<td><strong>Costo mensual</strong></td>
-						<td class="value-current" id="tableCurrentCost">-</td>
-						<td class="value-new" id="tableNewCost">-</td>
-						<td id="tableCostDiff" style="color: #a5be00; font-weight: 600;">-</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
 		<div class="benefits-checklist">
 			<div class="benefits-title">✨ Beneficios clave de Macpresse</div>
 			<div class="checklist-grid">
@@ -916,15 +834,6 @@
 			document.getElementById('currentTonnageDisplay').textContent = formatNumber(data.tonnage);
 			document.getElementById('compactedTonnageDisplay').textContent = formatNumber(compactedTonnage);
 			document.getElementById('spaceReductionDisplay').textContent = spaceReduction + '%';
-
-			// Tabla comparativa
-			document.getElementById('tableCurrentCollections').textContent = Math.round(data.collections);
-			document.getElementById('tableNewCollections').textContent = Math.round(newCollections);
-			document.getElementById('tableCollectionsDiff').textContent = '−' + reductionCollections;
-			
-			document.getElementById('tableCurrentCost').textContent = formatCurrency(data.currentCost);
-			document.getElementById('tableNewCost').textContent = formatCurrency(newCost);
-			document.getElementById('tableCostDiff').textContent = '−' + formatCurrency(monthlySavings);
 		}
 
 		// Manejo del formulario de leads SIN redirección a Formspree
